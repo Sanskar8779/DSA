@@ -1,1 +1,3 @@
 # DSA
+This repo will have all the DS Topics and their important questions with solution in c++...4
+I will also try to add solutions in python and java later...
