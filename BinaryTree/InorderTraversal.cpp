@@ -1,4 +1,4 @@
-//Inorder, Preorder, Postorder with recursion
+//Inorder with recursion
 
 #include <bits/stdc++.h>
 using namespace std;
