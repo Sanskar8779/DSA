@@ -1,4 +1,4 @@
-//Inorder Without recursion or stack(Morris Traversal)
+//Preorder Without recursion or stack(Morris Traversal)
 
 #include <bits/stdc++.h>  
 using namespace std;
@@ -12,33 +12,32 @@ public:
         left = right = NULL;
     }
 };
-void MorrisInorder(Node *root){
+void MorrisPreorder(Node *root){
     if(root == NULL){
         return;
     }
     Node *curr = root;
-    Node *pre;
     while(curr!=NULL){
         if(curr->left == NULL){
             cout<<curr->data<<" ";
             curr = curr->right;
         }
         else{
-            pre = curr->left;
+            Node *pre = curr->left;
             while(pre->right != NULL && pre->right != curr){
                 pre = pre->right;
             }
             if(pre->right == NULL){
                 pre->right = curr;
-                curr = curr->left;
-            }
-            else if(pre->right == curr){
-                pre->right = NULL;
                 cout<<curr->data<<" ";
+                curr = curr->left;
+            }else{
+                pre->right = NULL;
                 curr = curr->right;
             }
         }
     }
+    
 }
 int main(){
     Node* root = new Node(1);
@@ -49,6 +48,6 @@ int main(){
     root->right->left = new Node(6);
     root->right->right = new Node(7);
  
-    MorrisInorder(root);
+    MorrisPreorder(root);
     return 0;
 }

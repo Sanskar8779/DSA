@@ -1,6 +1,7 @@
-//Postorder Traversal withot recursion and using stack
+// Binary tree inorder using stack withot recursion
 
 #include <bits/stdc++.h>
+#include <stack>
 using namespace std;
 class Node{
 public:
@@ -13,30 +14,22 @@ public:
        right = NULL;
    }
 };
-void postorder(Node *root){
-    stack<Node*>st;
-    Node *curr = root;
+void Inorder(Node* root){
+    stack<Node*> st;
+    Node* curr = root;
     if(root == NULL){
         return;
     }
-    while(true){
+    while(curr!=NULL || st.empty() != true){
         while(curr!=NULL){
-            st.push(curr);
             st.push(curr);
             curr = curr->left;
         }
-        if(st.empty() == true){
-            return;
-        }
         curr = st.top();
         st.pop();
-        if(st.empty() != true && curr == st.top()){
-            curr = curr->right;
-        }else{
-            cout<<curr->data<<" ";
-            curr = NULL;
-        }
-    }
+        cout<<curr->data<<" ";
+        curr = curr->right;
+    }    
 }
 int main(){
     Node* root = new Node(1);
@@ -46,6 +39,6 @@ int main(){
     root->left->right = new Node(5);
     root->right->left = new Node(6);
     root->right->right = new Node(7);
-    postorder(root);
+    Inorder(root);
     return 0;
 }

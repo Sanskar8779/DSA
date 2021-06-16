@@ -1,4 +1,4 @@
-//Preorder with recursion
+//Postorder with recursion
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,16 +14,15 @@ public:
    }
 };
 
-void preorder(Tree *root){
+void postorder(Tree *root){
    if(root == NULL){
       return;
    }else{
+      postorder(root->left);
+      postorder(root->right);
       cout<<root->key<<" ";
-      preorder(root->left);
-      preorder(root->right);
    }
 }
-
 int main(){
     Tree* root = new Tree(1);
     root->left = new Tree(2);
@@ -32,7 +31,6 @@ int main(){
     root->left->right = new Tree(5);
     root->right->left = new Tree(6);
     root->right->right = new Tree(7);
-    preorder(root);
-    cout<<endl;
+    postorder(root);
     return 0;
 }
