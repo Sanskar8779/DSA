@@ -28,7 +28,6 @@ void Preorder(Node* root){
         }
         curr = st.top();
         st.pop();
-        // cout<<curr->data<<" ";
         curr = curr->right;
     }    
 }
