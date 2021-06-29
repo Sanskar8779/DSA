@@ -1,5 +1,11 @@
 //Preorder Traversal without recursion and using stack
 
+//           1
+//         /  \
+//        2    3
+//       / \   / \
+//      4  5  6   7
+
 #include <bits/stdc++.h>
 #include <stack>
 using namespace std;

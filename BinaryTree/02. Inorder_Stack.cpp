@@ -1,4 +1,9 @@
 // Binary tree inorder using stack withot recursion
+//           1
+//         /  \
+//        2    3
+//       / \   / \
+//      4  5  6   7
 
 #include <bits/stdc++.h>
 #include <stack>

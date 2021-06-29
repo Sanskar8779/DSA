@@ -1,4 +1,9 @@
 //Inorder Without recursion or stack(Morris Traversal)
+//           1
+//         /  \
+//        2    3
+//       / \   / \
+//      4  5  6   7
 
 #include <bits/stdc++.h>  
 using namespace std;
@@ -50,5 +55,6 @@ int main(){
     root->right->right = new Node(7);
  
     MorrisInorder(root);
+    
     return 0;
 }

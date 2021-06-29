@@ -1,5 +1,11 @@
 //Preorder with recursion
 
+//           1
+//         /  \
+//        2    3
+//       / \   / \
+//      4  5  6   7
+
 #include <bits/stdc++.h>
 using namespace std;
 class Tree{
@@ -33,6 +39,6 @@ int main(){
     root->right->left = new Tree(6);
     root->right->right = new Tree(7);
     preorder(root);
-    cout<<endl;
+    
     return 0;
 }
