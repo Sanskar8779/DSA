@@ -1,10 +1,12 @@
-//Level Order Traversal Line by Line
+//Vertical width of a binary tree different approach
 
 //           1
 //         /  \
 //        2    3
 //       / \   / \
 //      4  5  6   7
+//                 \
+//                  8
 
 #include <bits/stdc++.h>
 using namespace std;
