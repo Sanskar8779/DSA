@@ -1,4 +1,4 @@
-//Left view of a binary tree
+//Boundary traversal of the binary tree
 
 #include <bits/stdc++.h>
 using namespace std;
