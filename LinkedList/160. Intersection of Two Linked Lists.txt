@@ -1,0 +1,69 @@
+//Approach 1- Count the difference
+
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode* dummy1 = headA;
+        ListNode* dummy2 = headB;
+        int n=0, m=0;
+        while(dummy1){
+            dummy1 = dummy1->next;
+            n++;
+        }
+        while(dummy2){
+            dummy2 = dummy2->next;
+            m++;
+        }
+        int t = abs(m-n);
+        dummy1 = headA, dummy2 = headB;
+        if(n>m){
+            for(int i=0; i<t; i++){
+                dummy1 = dummy1->next;
+            }
+        }
+        if(m>n){
+            for(int i=0; i<t; i++){
+                dummy2 = dummy2->next;
+            }
+        }
+        while(dummy1 && dummy2){
+            if(dummy1 == dummy2){
+                return dummy1;
+            }
+            dummy1 = dummy1->next;
+            dummy2 = dummy2->next;
+        }
+        return NULL;
+    }
+//Approach 2 - Two pointeers solution
+
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode *ptr1 = headA;
+		ListNode *ptr2 = headB;
+		while(ptr1 != ptr2){
+			if(ptr1 == NULL){
+				ptr1 = headB;
+			}
+			else{
+				ptr1 = ptr1 -> next;
+			}
+			if(ptr2 == NULL){
+				ptr2 = headA;
+			}
+			else{
+				ptr2 = ptr2 -> next;
+			}
+		}
+		return ptr1;
+    }
+
+//Approach 2 - Different Code(strivers)
+
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(headA == NULL || headB == NULL) return NULL;
+        ListNode* a = headA;
+        ListNode* b = headB;
+        while(a != b){
+            a = a == NULL ? headB : a->next;
+            b = b == NULL ? headA : b->next;
+        }
+        return a;
+    }
