@@ -1,0 +1,42 @@
+bool isCompleteTree(TreeNode* root) {
+        if(root == NULL) return false;
+        queue<TreeNode*> q;
+        q.push(root);
+        while(q.front() != NULL){
+            TreeNode *temp = q.front();
+            q.pop();
+            q.push(temp->left);
+            q.push(temp->right);
+        }
+        while(q.empty() == false && q.front() == NULL){
+            q.pop();
+        }
+        return true ? q.empty() : false;
+    }
+
+//Another Approach
+
+bool isCompleteTree(TreeNode* root) {
+        bool flag = true;
+        queue<TreeNode*> q;
+        q.push(root);
+        
+        while(!q.empty()){
+            TreeNode* temp = q.front();
+            q.pop();
+            
+            if(temp == NULL){
+                flag = false;
+            }
+            else{
+                if(flag == false)
+                    return false;
+                
+                q.push(temp->left);
+                q.push(temp->right);
+            }
+            
+        }
+        
+        return true;
+    }
