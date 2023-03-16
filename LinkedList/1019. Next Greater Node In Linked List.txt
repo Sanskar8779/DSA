@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> nextLargerNodes(ListNode* head) {
+        vector<int> vec;
+        ListNode *itr, *comp;
+        itr = head;
+        int flag = 0;
+        while(itr){
+            comp = itr->next;
+            while(comp){
+                if(comp->val > itr->val){
+                    vec.push_back(comp->val);
+                    flag++;
+                    break;
+                }
+                comp = comp->next;
+            }
+            if(flag == 0 || comp == NULL) vec.push_back(0);
+            itr = itr->next;
+        }
+        return vec;
+    }
+};
