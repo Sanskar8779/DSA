@@ -1,0 +1,50 @@
+//we just need to reverse both the linkedlists then the question becomes same as "Add two numbers I" then we do the same as we did in the previous question and then again reverse the outcoming linkedlist and return it.
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode *p = l1, *q = NULL, *r = NULL;
+        while(p){
+            r = q;
+            q = p;
+            p = p->next;
+            q->next =r;
+        }
+        l1 = q;
+        q = NULL, r = NULL, p = l2;
+        while(p){
+            r = q;
+            q = p;
+            p = p->next;
+            q->next =r;
+        }
+        l2 = q;
+        ListNode *head = new ListNode();
+        ListNode *temp = head;
+        int carry = 0;
+        while(l1 || l2 || carry){
+            int sum = 0;
+            if(l1){
+                sum += l1->val;
+                l1 = l1->next;
+            }
+            if(l2){
+                sum += l2->val;
+                l2 = l2->next;
+            }
+            sum += carry;
+            carry = sum/10;
+            ListNode *node = new ListNode(sum%10);
+            temp->next = node;
+            temp = node;
+        }
+        q = NULL, r = NULL, p = head->next;
+        while(p){
+            r = q;
+            q = p;
+            p = p->next;
+            q->next =r;
+        }
+        return q;
+    }
+};
