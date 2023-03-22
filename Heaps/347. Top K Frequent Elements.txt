@@ -1,0 +1,18 @@
+class Solution {
+public:
+    typedef pair<int, int> pi;
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int>umap;
+        for(auto it:nums) umap[it]++;
+        vector<int> ans;
+        priority_queue<pi>pq;
+        for(auto it:umap){
+            pq.push(make_pair(it.second, it.first));
+            if(pq.size() > umap.size()-k){
+                ans.push_back(pq.top().second);
+                pq.pop();
+            } 
+        }
+        return ans;
+    }
+};
