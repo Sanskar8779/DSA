@@ -2,7 +2,6 @@
 //Time complexity of this program is O(n)
 #include <bits/stdc++.h>
 using namespace std;
-int ans = INT_MIN;
 class Node {
 public:
     int data;
@@ -13,27 +12,19 @@ public:
     }
 };
  
-int height(Node* root, int &ans)
-{
-    if(root == NULL){
-        return 0;
-    }
-    int lh = height(root->left, ans);
-    int rh = height(root->right, ans);
-    int temp = 1 + lh + rh;
-    
-    ans = max(ans, 1 + lh + rh);
+int height(Node *root, int &diameter){
+    if(!root) return 0;
+    int lh = height(root->left, diameter);
+    int rh = height(root->right, diameter);
+    diameter = max(diameter, lh+rh);
     return 1 + max(lh, rh);
 }
 
- 
-int diameter(Node* root)
-{
-    if(root == NULL){
-        return 0;
-    }
-    height(root, ans);
-    return ans;
+int diameter(Node *root){
+    if(!root) return 0;
+    int diameter = 0;
+    height(root, diameter);
+    return diameter;
 }
  
 int main()
