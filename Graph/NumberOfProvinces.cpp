@@ -35,6 +35,8 @@ public:
         return count;
     }
 };
+//Space complexity :- O(N) + O(N){For stack space worst case in the case of skewed graph}
+//Time complexity :- O(N) + O(V + 2E) ~ O(N)
 
 int main(){
     Solution ob;
